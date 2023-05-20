@@ -1944,7 +1944,7 @@ margin-left: 0 !important;
       <p class="authors">
            <span class="glyphicon glyphicon-user"></span> Runze Cui
       </p>
-         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 18
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 20
 May, 2023</p>
            
 
@@ -4630,21 +4630,21 @@ VIT 12
 </table>
 <pre class="r"><code>head(blsa_clean)</code></pre>
 <pre><code>## # A tibble: 6 × 99
-##      id   age gender visit total…¹ MRmean  RMRmean   bmi waist…² systo…³ diast…⁴
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1    57    89 M          2     NA   NA    NA        NA       NA      111      64
-## 2    57    90 M          3     NA   NA    NA        NA       NA       NA      NA
-## 3    87    83 M         18  52737.  NA    NA        30.5    104      154      80
-## 4    88    76 M         21  71094.  NA    NA        34.1    119.     154      88
-## 5    88    79 M         22  61267.  NA    NA        32.9    126.     139      75
-## 6    88    83 M         23  68565.   1.16  1.69e-5  36.7    121      112      72
-## # … with 88 more variables: albumin &lt;dbl&gt;, amylase &lt;dbl&gt;,
-## #   creatinine_serum &lt;dbl&gt;, vb12 &lt;dbl&gt;, ur24_cortisol &lt;dbl&gt;, sodium &lt;dbl&gt;,
-## #   tsh &lt;dbl&gt;, total_t3 &lt;dbl&gt;, total_t4 &lt;dbl&gt;, total_testosterone &lt;dbl&gt;,
-## #   free_t3 &lt;dbl&gt;, free_t4 &lt;dbl&gt;, serum_cortisol &lt;dbl&gt;, cholesterol &lt;dbl&gt;,
-## #   hdl &lt;dbl&gt;, ldl &lt;dbl&gt;, triglycerides &lt;dbl&gt;, d_dimer &lt;dbl&gt;, pai &lt;dbl&gt;,
-## #   fibrinogen &lt;dbl&gt;, crp &lt;dbl&gt;, il6 &lt;dbl&gt;, il18 &lt;dbl&gt;, il1ra &lt;dbl&gt;,
-## #   il15 &lt;dbl&gt;, bio_testosterone &lt;dbl&gt;, tnfa &lt;dbl&gt;, stnf_r2 &lt;dbl&gt;, …</code></pre>
+##      id   age gender visit total_lmass MRmean  RMRmean   bmi waist_circumference
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;               &lt;dbl&gt;
+## 1    57    89 M          2         NA   NA    NA        NA                   NA 
+## 2    57    90 M          3         NA   NA    NA        NA                   NA 
+## 3    87    83 M         18      52737.  NA    NA        30.5                104 
+## 4    88    76 M         21      71094.  NA    NA        34.1                119.
+## 5    88    79 M         22      61267.  NA    NA        32.9                126.
+## 6    88    83 M         23      68565.   1.16  1.69e-5  36.7                121 
+## # ℹ 90 more variables: systolic_bp &lt;dbl&gt;, diastolic_bp &lt;dbl&gt;, albumin &lt;dbl&gt;,
+## #   amylase &lt;dbl&gt;, creatinine_serum &lt;dbl&gt;, vb12 &lt;dbl&gt;, ur24_cortisol &lt;dbl&gt;,
+## #   sodium &lt;dbl&gt;, tsh &lt;dbl&gt;, total_t3 &lt;dbl&gt;, total_t4 &lt;dbl&gt;,
+## #   total_testosterone &lt;dbl&gt;, free_t3 &lt;dbl&gt;, free_t4 &lt;dbl&gt;,
+## #   serum_cortisol &lt;dbl&gt;, cholesterol &lt;dbl&gt;, hdl &lt;dbl&gt;, ldl &lt;dbl&gt;,
+## #   triglycerides &lt;dbl&gt;, d_dimer &lt;dbl&gt;, pai &lt;dbl&gt;, fibrinogen &lt;dbl&gt;, crp &lt;dbl&gt;,
+## #   il6 &lt;dbl&gt;, il18 &lt;dbl&gt;, il1ra &lt;dbl&gt;, il15 &lt;dbl&gt;, bio_testosterone &lt;dbl&gt;, …</code></pre>
 </div>
 <div id="choose-the-biomarkers-and-visits-for-allostatic-load-score" class="section level2">
 <h2>4. Choose the biomarkers and visits for allostatic load score:</h2>
@@ -4780,20 +4780,20 @@ new_blsa_clean =
 
 head(new_blsa_clean)</code></pre>
 <pre><code>## # A tibble: 6 × 78
-##      id visit   age gender MRmean    RMRmean   bmi systo…¹ diast…² waist…³ hba1c
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-## 1    95    11    81 M      NA     NA          25.1     135      69    97.7  NA  
-## 2    95    12    83 M      NA     NA          24.2     120      70    96.6   7.3
-## 3   166     5    68 M      NA     NA          21.7      NA      NA    78.6  NA  
-## 4   166     6    70 M      NA     NA          22.8     111      62    93.4  NA  
-## 5   166     7    72 M       1.07   0.0000206  22.8     109      67    98.6   5.5
-## 6   166     8    74 M       0.992  0.0000182  22.8     100      59    92     6  
-## # … with 67 more variables: uric_acid &lt;dbl&gt;, albumin &lt;dbl&gt;, amylase &lt;dbl&gt;,
-## #   creatinine_serum &lt;dbl&gt;, vb12 &lt;dbl&gt;, ur24_cortisol &lt;dbl&gt;, sodium &lt;dbl&gt;,
-## #   tsh &lt;dbl&gt;, total_t4 &lt;dbl&gt;, free_t3 &lt;dbl&gt;, free_t4 &lt;dbl&gt;,
-## #   serum_cortisol &lt;dbl&gt;, cholesterol &lt;dbl&gt;, hdl &lt;dbl&gt;, ldl &lt;dbl&gt;,
-## #   triglycerides &lt;dbl&gt;, pai &lt;dbl&gt;, crp &lt;dbl&gt;, il6 &lt;dbl&gt;, adiponectin &lt;dbl&gt;,
-## #   leptin &lt;dbl&gt;, resistin &lt;dbl&gt;, total_testosterone &lt;dbl&gt;,
+##      id visit   age gender MRmean    RMRmean   bmi systolic_bp diastolic_bp
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+## 1    95    11    81 M      NA     NA          25.1         135           69
+## 2    95    12    83 M      NA     NA          24.2         120           70
+## 3   166     5    68 M      NA     NA          21.7          NA           NA
+## 4   166     6    70 M      NA     NA          22.8         111           62
+## 5   166     7    72 M       1.07   0.0000206  22.8         109           67
+## 6   166     8    74 M       0.992  0.0000182  22.8         100           59
+## # ℹ 69 more variables: waist_circumference &lt;dbl&gt;, hba1c &lt;dbl&gt;, uric_acid &lt;dbl&gt;,
+## #   albumin &lt;dbl&gt;, amylase &lt;dbl&gt;, creatinine_serum &lt;dbl&gt;, vb12 &lt;dbl&gt;,
+## #   ur24_cortisol &lt;dbl&gt;, sodium &lt;dbl&gt;, tsh &lt;dbl&gt;, total_t4 &lt;dbl&gt;,
+## #   free_t3 &lt;dbl&gt;, free_t4 &lt;dbl&gt;, serum_cortisol &lt;dbl&gt;, cholesterol &lt;dbl&gt;,
+## #   hdl &lt;dbl&gt;, ldl &lt;dbl&gt;, triglycerides &lt;dbl&gt;, pai &lt;dbl&gt;, crp &lt;dbl&gt;, il6 &lt;dbl&gt;,
+## #   adiponectin &lt;dbl&gt;, leptin &lt;dbl&gt;, resistin &lt;dbl&gt;, total_testosterone &lt;dbl&gt;,
 ## #   bio_testosterone &lt;dbl&gt;, homocysteine &lt;dbl&gt;, estradiol &lt;dbl&gt;, …</code></pre>
 </div>
 <div id="check-the-new-dataset" class="section level2">
